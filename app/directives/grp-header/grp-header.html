@@ -4,7 +4,7 @@
     </div>
     <md-menu ng-if="authenticated === true">
         <md-button aria-label="" ng-click="$mdOpenMenu($event)">
-            {{fullName}}
+            Manage
         </md-button>
         <md-menu-content width="4">
             <md-menu-item>
@@ -17,11 +17,11 @@
                     Manage Defaults
                 </md-button>
             </md-menu-item>
-            <md-menu-item>
-                <md-button ng-click="logout($event)">
-                    Logout
-                </md-button>
-            </md-menu-item>
+            <!--<md-menu-item>-->
+                <!--<md-button ng-click="logout($event)">-->
+                    <!--Logout-->
+                <!--</md-button>-->
+            <!--</md-menu-item>-->
         </md-menu-content>
     </md-menu>
     <md-button ng-if="authenticated === false" ng-click="authenticate()">Login</md-button>

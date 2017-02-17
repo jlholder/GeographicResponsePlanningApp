@@ -56,7 +56,7 @@ angular.module('GRPApp', ['oc.lazyLoad', 'ui.router', 'ngMaterial', 'LocalStorag
         return {
             fullName: '',
             userName: '',
-            authenticated: false,
+            authenticated: true,
             authenticate: function (token, username, expires) {
                 var myThis = this,
                     authenticateDefer = $q.defer();
@@ -209,7 +209,7 @@ angular.module('GRPApp', ['oc.lazyLoad', 'ui.router', 'ngMaterial', 'LocalStorag
         function ($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $mdThemingProvider, $mdIconProvider,
                   grpServiceProvider, iapServiceProvider, contactServiceProvider, configProvider) {
             'use strict';
-            var serviceRoot = 'https://utility.arcgis.com/usrsvcs/servers/0fdf6a35174b4a76be078b5c028acca7/rest/services/R9GIS/IAPDev2/FeatureServer/';
+            var serviceRoot = 'http://it.innovateteam.com/arcgis/rest/services/GRPApp/FeatureServer/';
 
             grpServiceProvider.config({
                 serviceRoot: serviceRoot,
@@ -233,8 +233,8 @@ angular.module('GRPApp', ['oc.lazyLoad', 'ui.router', 'ngMaterial', 'LocalStorag
                 assignmentListContactsLayer: '24',
                 assignmentListResourcesLayer: '28',
                 medicalPlanLayer: '16',
-                ics234ObjectivesLayer: '21',
-                ics234StrategiesLayer: '22',
+                ics234ObjectivesLayer: '42',
+                ics234StrategiesLayer: '41',
                 ics234TacticsLayer: '20',
                 ics234ObjectivesDefaultsLayer: '37',
                 ics234StrategiesDefaultsLayer: '38',

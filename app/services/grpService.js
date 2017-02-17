@@ -181,9 +181,12 @@ angular.module('GRPApp')
                                 return arcgis.getFeature(this.layer, globalId, objectId);
                             },
                             add: function (feature) {
-                                return arcgis.addFeature(this.layer, feature).then(function () {
+                                var deferred = $q.defer();
+                                arcgis.addFeature(this.layer, feature).then(function (result) {
                                     $mdToast.showSimple("Created");
+                                    deferred.resolve(result);
                                 });
+                                return deferred.promise;
                             },
                             update: function (feature) {
                                 return arcgis.updateFeature(this.layer, feature);
