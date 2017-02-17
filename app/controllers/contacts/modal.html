@@ -1,0 +1,65 @@
+<md-dialog>
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Edit Contact</h2>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="width:500px;">
+            <div class="md-dialog-content">
+                <md-input-container class="md-block" style="margin-bottom: 0">
+                    <label>{{contact.fields.Name.alias}}:</label>
+                    <textarea type="text" ng-model="contact.attributes.Name"
+                              maxlength="{{contact.fields.Name.length}}"></textarea>
+                </md-input-container>
+                <md-input-container class="md-block" style="margin-bottom: 0">
+                    <label>{{contact.fields.Title.alias}}:</label>
+                    <textarea type="text" ng-model="contact.attributes.Title"
+                              maxlength="{{contact.fields.Title.length}}"></textarea>
+                </md-input-container>
+                <md-input-container class="md-block" style="margin-bottom: 0">
+                    <label>{{contact.fields.Organization.alias}}:</label>
+                    <textarea type="text" ng-model="contact.attributes.Organization"
+                              maxlength="{{contact.fields.Organization.length}}"></textarea>
+                </md-input-container>
+                <md-input-container class="md-block" style="margin-bottom:44px">
+                    <label>{{contact.fields.Organization_Type.alias}}:</label>
+                    <md-select ng-model="contact.attributes.Organization_Type">
+                        <md-option ng-repeat="codedValue in contact.fields.Organization_Type.domain.codedValues"
+                                   value="{{codedValue.code}}">
+                            {{codedValue.name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container class="md-block" style="margin-bottom: 0">
+                    <label>{{contact.fields.Email.alias}}:</label>
+                    <textarea type="text" ng-model="contact.attributes.Email"
+                              maxlength="{{contact.fields.Email.length}}"></textarea>
+                </md-input-container>
+                <md-input-container class="md-block" style="margin-bottom: 0">
+                    <label>{{contact.fields.Phone.alias}}:</label>
+                    <input name="phone" ng-model="contact.attributes.Phone"
+                           ng-pattern="/^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/"
+                           maxlength="{{contact.fields.Phone.length}}">
+                    <div ng-messages="contactForm.phone.$error">
+                        <div ng-message="pattern">Please enter a valid phone number.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block" style="margin-bottom: 0">
+                    <label>{{contact.fields.EmergencyPhone.alias}}:</label>
+                    <input name="phone" ng-model="contact.attributes.EmergencyPhone"
+                           ng-pattern="/^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/"
+                           maxlength="{{contact.fields.EmergencyPhone.length}}">
+                    <div ng-messages="contactForm.phone.$error">
+                        <div ng-message="pattern">Please enter a valid phone number.</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <span flex></span>
+                <md-button ng-click="cancel()" class="md-raised md-accent">Back</md-button>
+                <md-button ng-click="save()" class="md-raised md-primary">Save</md-button>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>

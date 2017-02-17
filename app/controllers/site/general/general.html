@@ -1,0 +1,136 @@
+<md-content id="sitePanel" layout="column" layout-padding>
+
+    <grp-form-buttons title="General"
+                      save="siteForm.$submitted = true; siteForm.$valid && save()"
+                      delete="delete(GRP.site, $event)"
+                      hide-delete="$state.includes('main.site', {siteid: 'new'})"
+                      export="export(GRP.site)" export-loading="exportLoading"
+                      hide-export="$state.includes('main.site', {siteid: 'new'})"
+                      cancel="$state.go('main')">
+    </grp-form-buttons>
+
+    <div>
+        <md-input-container class="md-block">
+            <label>{{GRP.site.fields.Name.alias}}:</label>
+            <input type="text" ng-model="GRP.site.attributes.Name" name="name"
+                   required maxlength="{{GRP.site.fields.Name.length}}">
+            <div ng-messages="siteForm.name.$error"
+                 ng-show="siteForm.name.$dirty || siteForm.$submitted && siteForm.name.$invalid">
+                <div ng-message="required">A Name is Required!</div>
+            </div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>{{GRP.site.fields.Other_Name.alias}}:</label>
+            <input type="text" ng-model="GRP.site.attributes.Other_Name"
+                   maxlength="{{GRP.site.fields.Other_Name.length}}">
+        </md-input-container>
+
+        <md-input-container>
+            <label>{{GRP.site.fields.Site_ID.alias}}:</label>
+            <input type="text" ng-model="GRP.site.attributes.Site_ID"
+                   maxlength="{{GRP.site.fields.Site_ID.length}}">
+        </md-input-container>
+        <md-input-container>
+            <label>{{GRP.site.fields.GRP_Map_No.alias}}:</label>
+            <input type="text" ng-model="GRP.site.attributes.GRP_Map_No "
+                   maxlength="{{GRP.site.fields.GRP_Map_No.length}}">
+        </md-input-container>
+        <md-input-container>
+            <label>{{GRP.site.fields.Sector.alias}}:</label>
+            <input type="text" ng-model="GRP.site.attributes.Sector"
+                   maxlength="{{GRP.site.fields.Sector.length}}">
+        </md-input-container>
+        <div class="col-lg-12">
+            <h3>Protection Priority (Season)</h3>
+        </div>
+
+        <md-input-container>
+            <label>{{GRP.site.fields.PP_Spring.alias}}:</label>
+            <input type="text" ng-model="GRP.site.attributes.PP_Spring"
+                   maxlength="{{GRP.site.fields.PP_Spring.length}}">
+        </md-input-container>
+
+        <md-input-container>
+            <label>{{GRP.site.fields.PP_Summer.alias}}:</label>
+            <input type="text" ng-model="GRP.site.attributes.PP_Summer"
+                   maxlength="{{GRP.site.fields.PP_Summer.length}}">
+        </md-input-container>
+
+        <md-input-container>
+            <label>{{GRP.site.fields.PP_Fall.alias}}:</label>
+
+            <input type="text" ng-model="GRP.site.attributes.PP_Fall"
+                   maxlength="{{GRP.site.fields.PP_Fall.length}}">
+        </md-input-container>
+
+        <md-input-container>
+            <label>{{GRP.site.fields.PP_Winter.alias}}:</label>
+            <input type="text" ng-model="GRP.site.attributes.PP_Winter"
+                   maxlength="{{GRP.site.fields.PP_Winter.length}}">
+        </md-input-container>
+
+        <md-input-container>
+            <label>Latitude:</label>
+            <input class="form-control" type="text" ng-model="GRP.site.coordinates.y">
+        </md-input-container>
+
+        <md-input-container>
+            <label>Longitude:</label>
+            <input class="form-control" type="text" ng-model="GRP.site.coordinates.x">
+        </md-input-container>
+
+
+        <md-input-container class="md-block">
+
+            <label>{{GRP.site.fields.ESI_Map.alias}}:</label>
+            <input class="form-control" type="text" ng-model="GRP.site.attributes.ESI_Map"
+                   maxlength="{{GRP.site.fields.ESI_Map.length}}">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>{{GRP.site.fields.ESI_Name.alias}}:</label>
+            <input class="form-control" type="text" ng-model="GRP.site.attributes.ESI_Name"
+                   maxlength="{{GRP.site.fields.ESI_Name.length}}">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>{{GRP.site.fields.NOAA_Chart.alias}}:</label>
+            <input class="form-control" type="text" ng-model="GRP.site.attributes.NOAA_Chart"
+                   maxlength="{{GRP.site.fields.NOAA_Chart.length}}">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>{{GRP.site.fields.CHART_Name.alias}}:</label>
+
+            <input class="form-control" type="text" ng-model="GRP.site.attributes.CHART_Name"
+                   maxlength="{{GRP.site.fields.CHART_Name.length}}">
+        </md-input-container>
+
+
+        <md-input-container class="md-block">
+            <label>{{GRP.site.fields.USGS_Quad.alias}}:</label>
+            <input class="form-control" type="text" ng-model="GRP.site.attributes.USGS_Quad"
+                   maxlength="{{GRP.site.fields.USGS_Quad.length}}">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>{{GRP.site.fields.QUAD_Name.alias}}:</label>
+            <input class="form-control" type="text" ng-model="GRP.site.attributes.QUAD_Name"
+                   maxlength="{{GRP.site.fields.QUAD_Name.length}}">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>{{GRP.site.fields.Managed_Area.alias}}:</label>
+            <input class="form-control" type="text" ng-model="GRP.site.attributes.Managed_Area"
+                   maxlength="{{GRP.site.fields.Managed_Area.length}}">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>{{GRP.site.fields.General_Location.alias}}:</label>
+            <input class="form-control" type="text"
+                   ng-model="GRP.site.attributes.General_Location"
+                   maxlength="{{GRP.site.fields.General_location.length}}">
+        </md-input-container>
+    </div>
+</md-content>

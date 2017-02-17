@@ -1,0 +1,11 @@
+<md-progress-linear md-mode="indeterminate" ng-show="GRP.loading" style="position: absolute; z-index: 9999;"></md-progress-linear>
+<grp-header></grp-header>
+<grp-toolbar state="$state" ng-hide="$state.is('main.contacts') || $state.includes('main.defaults')"></grp-toolbar>
+<md-content layout="column" flex>
+    <md-content layout-gt-xs="row" layout="column" flex>
+        <grp-map layers="layers" ng-hide="$state.is('main.contacts') || $state.includes('main.defaults')"></grp-map>
+        <md-content layout-gt-xs="column" layout="row" ui-view ng-show="siteMode || iapMode || $state.is('main.contacts') || $state.includes('main.defaults')" flex></md-content>
+    </md-content>
+</md-content>
+
+
